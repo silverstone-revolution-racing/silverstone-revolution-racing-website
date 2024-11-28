@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revolution Racing - F1 in Schools</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+      :root {
+        --blue: #80a1c1;
+        --dark: #1d201f;
+        --red: #ff4242;
+        --offwhite: #f9f9f9;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--offwhite);
+        font-style: italic;
+      }
+
+      .bg-brand-blue {
+        background-color: var(--blue);
+      }
+      .bg-brand-dark {
+        background-color: var(--dark);
+      }
+      .bg-brand-red {
+        background-color: var(--red);
+      }
+      .text-brand-blue {
+        color: var(--blue);
+      }
+      .text-brand-dark {
+        color: var(--dark);
+      }
+      .text-brand-red {
+        color: var(--red);
+      }
+
+      .hero-section {
+        background: url("./assets/hero.png") center/cover;
+        height: 100vh;
+      }
+
+      .value-card {
+        transition: transform 0.3s ease;
+      }
+
+      .value-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .team-member {
+        transition: transform 0.3s ease;
+      }
+
+      .team-member:hover {
+        transform: translateY(-5px);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--red);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .team-image-container {
+        position: relative;
+        width: 100%;
+        padding-top: 100%; /* Creates 1:1 aspect ratio */
+        overflow: hidden;
+      }
+
+      .team-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .scroll-indicator {
+        animation: bounce 2s infinite;
+        bottom: 2rem;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-20px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* For Firefox */
+      .scroll-prompt {
+        scrollbar-width: none;
+      }
+
+      /* For Chrome, Safari, and Opera */
+      .scroll-prompt::-webkit-scrollbar {
+        display: none;
+      }
+      .scroll-indicator {
+        animation: bounce 2s infinite;
+        bottom: 2rem;
+        transition: opacity 0.3s ease-out;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-20px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* For Firefox */
+      .scroll-prompt {
+        scrollbar-width: none;
+      }
+
+      /* For Chrome, Safari, and Opera */
+      .scroll-prompt::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-brand-dark bg-opacity-90 text-white z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Text branding -->
+          <a href="#" class="text-xl font-bold">Revolution Racing.</a>
+
+          <!-- Mobile menu button -->
+          <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <!-- Desktop menu -->
+          <div class="hidden md:flex space-x-8">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#values" class="nav-link">Values</a>
+            <a href="#team" class="nav-link">Team</a>
+            <a href="#sponsors" class="nav-link">Sponsors</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4">
+          <div class="flex flex-col space-y-4">
+            <a href="#about" class="nav-link block" onclick="closeMenu()"
+              >About</a
+            >
+            <a href="#values" class="nav-link block" onclick="closeMenu()"
+              >Values</a
+            >
+            <a href="#team" class="nav-link block" onclick="closeMenu()"
+              >Team</a
+            >
+            <a href="#sponsors" class="nav-link block" onclick="closeMenu()"
+              >Sponsors</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-section flex items-center justify-center text-center text-white relative"
+    >
+      <div class="container mx-auto px-6">
+        <div class="flex justify-center mb-12">
+          <img
+            src="assets\logos\revolution+racing\logo.png"
+            alt="Revolution Racing Logo"
+            class="h-36"
+          />
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 text-brand-dark">
+          Revolution Racing.
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-brand-dark font-bold">
+          "Revving Towards a New Era of Innovation."
+        </p>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        id="scroll-indicator"
+        class="scroll-indicator absolute flex flex-col items-center opacity-100"
+      >
+        <!-- Desktop version -->
+        <div class="hidden md:flex flex-col items-center">
+          <p class="text-brand-dark mb-2 font-semibold">Scroll for more</p>
+          <svg
+            class="w-6 h-6 text-brand-dark"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+
+        <!-- Mobile version -->
+        <div class="md:hidden flex flex-col items-center">
+          <div
+            class="bg-brand-dark text-white px-4 py-2 rounded-full shadow-lg"
+          >
+            <p class="text-sm font-semibold">Swipe up to explore</p>
+          </div>
+          <svg
+            class="w-6 h-6 text-brand-dark mt-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-brand-dark">
+          About Us.
+        </h2>
+        <div class="max-w-3xl mx-auto text-lg text-gray-700">
+          <p>
+            Revolution Racing is proud to represent Silverstone UTC in the F1 in
+            Schools regional competition. We are a team of six ambitious
+            16-year-olds, united by a passion for innovation and engineering.
+            With diverse skills and a shared drive for excellence, we aim to
+            push boundaries and leave our mark on the competition.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="py-20 bg-brand-dark">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">
+          Our Values.
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="value-card bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-brand-blue">Innovation.</h3>
+            <p>
+              Our team's ability to generate fresh concepts and develop new
+              ideas.
+            </p>
+          </div>
+          <div class="value-card bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-brand-blue">Ambition.</h3>
+            <p>
+              Striving for excellence in everything we do, always aiming for the
+              top.
+            </p>
+          </div>
+          <div class="value-card bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-brand-blue">Integrity.</h3>
+            <p>
+              Staying true to our core beliefs as a team, and racing in an
+              admirable manner.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-brand-dark">
+          Meet The Team.
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
+            <div class="team-image-container rounded-lg mb-4">
+              <img
+                src="assets\meet+the+team\team+photos-01.png"
+                alt="Team Leader"
+                class="team-image rounded-lg"
+              />
+            </div>
+            <div class="text-left pl-2">
+              <h3 class="text-2xl font-bold mb-1">Fiona</h3>
+              <p class="text-xl text-brand-red mb-2">Team Leader.</p>
+              <p class="text-gray-300">Leading our team towards success.</p>
+            </div>
+          </div>
+
+          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
+            <div class="team-image-container rounded-lg mb-4">
+              <img
+                src="assets\meet+the+team\team+photos-02.png"
+                alt="Design Engineer"
+                class="team-image rounded-lg"
+              />
+            </div>
+            <div class="text-left pl-2">
+              <h3 class="text-2xl font-bold mb-1">Harry</h3>
+              <p class="text-xl text-brand-red mb-2">Design Engineer.</p>
+              <p class="text-gray-300">Designing our car.</p>
+            </div>
+          </div>
+
+          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
+            <div class="team-image-container rounded-lg mb-4">
+              <img
+                src="assets\meet+the+team\team+photos-05.png"
+                alt="Manufacturing Engineer"
+                class="team-image rounded-lg"
+              />
+            </div>
+            <div class="text-left pl-2">
+              <h3 class="text-2xl font-bold mb-1">Savannah</h3>
+              <p class="text-xl text-brand-red mb-2">Manufacturing Engineer.</p>
+              <p class="text-gray-300">Bringing our car to life.</p>
+            </div>
+          </div>
+
+          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
+            <div class="team-image-container rounded-lg mb-4">
+              <img
+                src="assets\meet+the+team\team+photos-03.png"
+                alt="Social Media & Marketing"
+                class="team-image rounded-lg"
+              />
+            </div>
+            <div class="text-left pl-2">
+              <h3 class="text-2xl font-bold mb-1">Amy</h3>
+              <p class="text-xl text-brand-red mb-2">
+                Social Media & Marketing.
+              </p>
+              <p class="text-gray-300">Building our brand presence.</p>
+            </div>
+          </div>
+
+          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
+            <div class="team-image-container rounded-lg mb-4">
+              <img
+                src="assets\meet+the+team\team+photos-04.png"
+                alt="Graphic Designer"
+                class="team-image rounded-lg"
+              />
+            </div>
+            <div class="text-left pl-2">
+              <h3 class="text-2xl font-bold mb-1">Tom</h3>
+              <p class="text-xl text-brand-red mb-2">Graphic Designer.</p>
+              <p class="text-gray-300">Creating our visual identity.</p>
+            </div>
+          </div>
+
+          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
+            <div class="team-image-container rounded-lg mb-4">
+              <img
+                src="assets\meet+the+team\team+photos-06.png"
+                alt="Finance Manager"
+                class="team-image rounded-lg"
+              />
+            </div>
+            <div class="text-left pl-2">
+              <h3 class="text-2xl font-bold mb-1">Adam</h3>
+              <p class="text-xl text-brand-red mb-2">Finance Manager.</p>
+              <p class="text-gray-300">Managing our resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="py-20 bg-brand-dark">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">
+          Our Sponsors.
+        </h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto"
+        >
+          <!-- Main Sponsor -->
+          <div class="col-span-1 sm:col-span-3">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden mx-auto">
+              <!-- Mobile square container -->
+              <div class="relative w-full sm:hidden" style="padding-top: 100%">
+                <div
+                  class="absolute inset-0 p-4 flex items-center justify-center"
+                >
+                  <img
+                    src="assets\logos\sponsors\Sponsor_Logos-06.png"
+                    alt="Primary Sponsor"
+                    class="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
+              <!-- Desktop/tablet rectangular container -->
+              <div
+                class="relative w-full hidden sm:block"
+                style="padding-top: 33.33%"
+              >
+                <div
+                  class="absolute inset-0 p-6 flex items-center justify-center"
+                >
+                  <img
+                    src="assets\logos\sponsors\Sponsor_Logos-01.png"
+                    alt="Primary Sponsor"
+                    class="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Sponsor 1 (hidden on mobile, shown on larger screens) -->
+          <div
+            class="hidden sm:block bg-white rounded-lg shadow-lg overflow-hidden"
+          >
+            <div class="relative w-full" style="padding-top: 33.33%">
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3"
+              >
+                <img
+                  src="assets\logos\sponsors\Sponsor_Logos-02.png"
+                  alt="Secondary Sponsor 1"
+                  class="max-w-full max-h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Sponsor 2 (hidden on mobile, shown on larger screens) -->
+          <div
+            class="hidden sm:block bg-white rounded-lg shadow-lg overflow-hidden"
+          >
+            <div class="relative w-full" style="padding-top: 33.33%">
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3"
+              >
+                <img
+                  src="assets\logos\sponsors\Sponsor_Logos-03.png"
+                  alt="Secondary Sponsor 2"
+                  class="max-w-full max-h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Sponsor 3 (hidden on mobile, shown on larger screens) -->
+          <div
+            class="hidden sm:block bg-white rounded-lg shadow-lg overflow-hidden"
+          >
+            <div class="relative w-full" style="padding-top: 33.33%">
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3"
+              >
+                <img
+                  src="assets\logos\sponsors\Sponsor_Logos-04.png"
+                  alt="Secondary Sponsor 3"
+                  class="max-w-full max-h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-8">
+      <div class="container mx-auto px-6 text-center">
+        <p>© 2024 Revolution Racing. All rights reserved.</p>
+        <div class="mt-4 space-x-4">
+          <a
+            href="https://www.instagram.com/silverstonerevolutionracing/"
+            class="text-brand-red hover:text-white transition-colors"
+            >Instagram.</a
+          >
+          <a
+            href="https://www.linkedin.com/company/silverstone-revolution-racing"
+            class="text-brand-red hover:text-white transition-colors"
+            >LinkedIn.</a
+          >
+          <a
+            href="https://www.tiktok.com/@silverstonerevracing"
+            class="text-brand-red hover:text-white transition-colors"
+            >TikTok.</a
+          >
+          <a
+            href="https://linktr.ee/silverstonerevolutionracing"
+            class="text-brand-red hover:text-white transition-colors"
+            >LinkTree.</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    }
+
+    function closeMenu() {
+      document.getElementById("mobile-menu").classList.add("hidden");
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuButton = document.querySelector("button");
+
+      if (
+        !mobileMenu.contains(event.target) &&
+        !menuButton.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+    let scrollIndicator = document.getElementById("scroll-indicator");
+    let isVisible = true;
+    let scrollThreshold = 100; // How far user needs to scroll before indicator disappears
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > scrollThreshold && isVisible) {
+        scrollIndicator.style.opacity = "0";
+        // After animation completes, hide element completely
+        setTimeout(() => {
+          scrollIndicator.style.display = "none";
+        }, 300);
+        isVisible = false;
+      } else if (window.scrollY <= scrollThreshold && !isVisible) {
+        scrollIndicator.style.display = "flex";
+        scrollIndicator.style.opacity = "1";
+        isVisible = true;
+      }
+    });
+  </script>
+</html>
