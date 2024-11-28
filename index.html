@@ -9,8 +9,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
     />
     <style>
+      /* Import Poppins font from Google Fonts - regular, semibold, and bold weights */
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+      /* Define global CSS variables for consistent color usage throughout the site */
       :root {
         --blue: #80a1c1;
         --dark: #1d201f;
@@ -19,12 +21,14 @@
         --white: #ffffff;
       }
 
+      /* Base styles for the entire site */
       body {
         font-family: "Poppins", sans-serif;
         background-color: var(--offwhite);
         font-style: italic;
       }
 
+      /* Utility classes for brand colors - backgrounds */
       .bg-brand-blue {
         background-color: var(--blue);
       }
@@ -34,6 +38,8 @@
       .bg-brand-red {
         background-color: var(--red);
       }
+
+      /* Utility classes for brand colors - text */
       .text-brand-blue {
         color: var(--blue);
       }
@@ -44,11 +50,16 @@
         color: var(--red);
       }
 
+      /* Hero section with full viewport height and background image */
       .hero-section {
-        background: url("./assets/hero.png") center/cover;
+        background-color: var(--white); /* Fallback color */
+        background-image: url("./assets/hero.png");
+        background-position: center;
+        background-size: cover;
         height: 100vh;
       }
 
+      /* Card hover animations */
       .value-card {
         transition: transform 0.3s ease;
       }
@@ -57,6 +68,7 @@
         transform: translateY(-5px);
       }
 
+      /* Team member card hover animations */
       .team-member {
         transition: transform 0.3s ease;
       }
@@ -65,10 +77,12 @@
         transform: translateY(-5px);
       }
 
+      /* Navigation link hover effects */
       .nav-link {
         position: relative;
       }
 
+      /* Animated underline effect for navigation links */
       .nav-link::after {
         content: "";
         position: absolute;
@@ -84,6 +98,7 @@
         width: 100%;
       }
 
+      /* Team member image container with square aspect ratio */
       .team-image-container {
         position: relative;
         width: 100%;
@@ -91,6 +106,7 @@
         overflow: hidden;
       }
 
+      /* Team member image styling */
       .team-image {
         position: absolute;
         top: 0;
@@ -99,11 +115,8 @@
         height: 100%;
         object-fit: cover;
       }
-      .scroll-indicator {
-        animation: bounce 2s infinite;
-        bottom: 2rem;
-      }
 
+      /* Bounce animation keyframes for scroll indicator */
       @keyframes bounce {
         0%,
         20%,
@@ -120,45 +133,21 @@
         }
       }
 
-      /* For Firefox */
+      /* Hide scrollbar for scroll prompt - Firefox */
       .scroll-prompt {
         scrollbar-width: none;
       }
 
-      /* For Chrome, Safari, and Opera */
+      /* Hide scrollbar for scroll prompt - Webkit browsers */
       .scroll-prompt::-webkit-scrollbar {
         display: none;
       }
+
+      /* Scroll indicator styling and animation */
       .scroll-indicator {
         animation: bounce 2s infinite;
-        bottom: 2rem;
+        bottom: 4rem;
         transition: opacity 0.3s ease-out;
-      }
-
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateY(0);
-        }
-        40% {
-          transform: translateY(-20px);
-        }
-        60% {
-          transform: translateY(-10px);
-        }
-      }
-
-      /* For Firefox */
-      .scroll-prompt {
-        scrollbar-width: none;
-      }
-
-      /* For Chrome, Safari, and Opera */
-      .scroll-prompt::-webkit-scrollbar {
-        display: none;
       }
     </style>
   </head>
