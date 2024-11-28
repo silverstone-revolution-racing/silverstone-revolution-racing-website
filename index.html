@@ -68,7 +68,23 @@
         transform: translateY(-5px);
       }
 
-      /* Team member card hover animations */
+      /* Team member hover animations */
+      .team-image-container {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+      }
+
+      .team-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
       .team-member {
         transition: transform 0.3s ease;
       }
@@ -96,24 +112,6 @@
 
       .nav-link:hover::after {
         width: 100%;
-      }
-
-      /* Team member image container with square aspect ratio */
-      .team-image-container {
-        position: relative;
-        width: 100%;
-        padding-top: 100%; /* Creates 1:1 aspect ratio */
-        overflow: hidden;
-      }
-
-      /* Team member image styling */
-      .team-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
       }
 
       /* Bounce animation keyframes for scroll indicator */
@@ -525,27 +523,78 @@
     <footer class="bg-brand-dark text-white py-8">
       <div class="container mx-auto px-6 text-center">
         <p>© 2024 Revolution Racing. All rights reserved.</p>
-        <div class="mt-4 space-x-4">
+        <div class="mt-4 flex justify-center space-x-4">
+          <!-- Instagram Icon -->
           <a
             href="https://www.instagram.com/silverstonerevolutionracing/"
             class="text-brand-red hover:text-white transition-colors"
-            >Instagram.</a
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              class="w-6 h-6"
+              fill="currentColor"
+            >
+              <path
+                d="M50 9c13.36 0 14.94.06 20.2.29 4.88.21 7.52 1.04 9.28 1.72 2.32.9 4 1.99 5.74 3.73 1.76 1.76 2.83 3.42 3.73 5.74.68 1.76 1.5 4.41 1.72 9.28.23 5.27.29 6.86.29 20.2s-.06 14.94-.29 20.2c-.22 4.88-1.04 7.52-1.72 9.28-.9 2.32-1.99 4-3.73 5.74s-3.42 2.83-5.74 3.73c-1.76.68-4.42 1.5-9.28 1.72-5.27.23-6.86.29-20.2.29s-14.94-.06-20.2-.29c-4.88-.21-7.52-1.04-9.28-1.72-2.32-.9-4-1.99-5.74-3.73-1.76-1.76-2.83-3.42-3.73-5.74-.68-1.76-1.5-4.41-1.72-9.28C9.06 64.94 9 63.35 9 50s.06-14.94.29-20.2c.21-4.88 1.04-7.52 1.72-9.28.9-2.32 1.99-4 3.73-5.74 1.76-1.76 3.42-2.83 5.74-3.73 1.76-.68 4.41-1.5 9.28-1.72C35.06 9.06 36.65 9 50 9ZM50 0C36.42 0 34.72.06 29.39.29c-5.31.23-8.97 1.09-12.13 2.32-3.3 1.29-6.09 2.99-8.87 5.78-2.79 2.77-4.49 5.57-5.78 8.85-1.23 3.18-2.09 6.82-2.32 12.13C.08 34.73.02 36.43.02 50.01s.06 15.28.29 20.61c.23 5.31 1.09 8.97 2.32 12.13 1.29 3.3 2.99 6.09 5.78 8.87 2.77 2.77 5.57 4.49 8.85 5.76 3.18 1.23 6.82 2.09 12.13 2.32 5.33.23 7.03.29 20.61.29s15.28-.06 20.61-.29c5.31-.23 8.97-1.09 12.13-2.32 3.28-1.27 6.08-2.99 8.85-5.76s4.49-5.57 5.76-8.85c1.23-3.18 2.09-6.82 2.32-12.13.23-5.33.29-7.03.29-20.61s-.06-15.28-.29-20.61c-.23-5.31-1.09-8.97-2.32-12.13-1.23-3.32-2.93-6.11-5.72-8.89-2.77-2.77-5.57-4.49-8.85-5.76-3.18-1.23-6.82-2.09-12.13-2.32C65.28.08 63.58.02 50 .02Z"
+              />
+              <path
+                d="M50 24.32c-14.18 0-25.69 11.51-25.69 25.69S35.82 75.69 50 75.69 75.69 64.18 75.69 50 64.18 24.32 50 24.32Zm0 42.35c-9.2 0-16.66-7.46-16.66-16.66S40.8 33.35 50 33.35s16.66 7.46 16.66 16.66-7.46 16.66-16.66 16.66ZM82.73 23.31c0 3.32-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6 6 2.7 6 6Z"
+              />
+            </svg>
+          </a>
+
+          <!-- LinkedIn Icon -->
           <a
             href="https://www.linkedin.com/company/silverstone-revolution-racing"
             class="text-brand-red hover:text-white transition-colors"
-            >LinkedIn.</a
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              class="w-6 h-6"
+              fill="currentColor"
+            >
+              <path
+                d="M92.6 0H7.38C3.3 0 0 3.22 0 7.21v85.57c0 3.98 3.3 7.23 7.38 7.23h85.21c4.08 0 7.4-3.24 7.4-7.21V7.21C100 3.22 96.68 0 92.6 0ZM29.17 85.42h-14.58v-47.92h14.58v47.92ZM21.27 31.29c-4.77 0-8.61-3.85-8.61-8.59s3.85-8.59 8.61-8.59 8.59 3.85 8.59 8.59-3.85 8.59-8.59 8.59ZM83.33 85.42h-14.58v-23.2c0-5.53-.1-12.66-7.74-12.66s-8.92 6.04-8.92 12.27v23.59h-14.58v-47.92h14.58v6.25h.19c1.93-3.79 6.65-7.8 13.69-7.8 14.66 0 17.37 9.99 17.37 22.99v26.48h0Z"
+              />
+            </svg>
+          </a>
+
+          <!-- TikTok Icon -->
           <a
             href="https://www.tiktok.com/@silverstonerevracing"
             class="text-brand-red hover:text-white transition-colors"
-            >TikTok.</a
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              class="w-6 h-6"
+              fill="currentColor"
+            >
+              <path
+                d="M68.94 0h-16.37v68.13c0 8.12-6.31 14.79-14.17 14.79s-14.17-6.67-14.17-14.79 6.17-14.5 13.75-14.79v-15.4c-16.68.28-30.14 13.96-30.14 31.03s13.74 31.03 30.7 31.03 30.7-13.96 30.7-31.03v-35.78c6.51 4.64 14.49 7.39 22.92 7.54V16.2c-8.3 0-16.14-3.11-22.42-8.57C68.9 6.27 68.94 0 68.94 0Z"
+              />
+            </svg>
+          </a>
+
+          <!-- LinkTree Icon -->
+
           <a
             href="https://linktr.ee/silverstonerevolutionracing"
             class="text-brand-red hover:text-white transition-colors"
-            >LinkTree.</a
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              class="w-6 h-6"
+              fill="currentColor"
+            >
+              <path
+                d="M9.39,33.67h24.72l-17.6-16.68,9.66-9.77,16.68,16.99V0h14.29v24.29l16.84-17.04,9.75,9.8-17.76,16.63h24.84v13.27h-24.8l17.65,16.53-9.69,9.31-23.98-23.26-23.98,23.36-9.69-9.4,17.65-16.53H9.18v-13.27h.2ZM42.86,67.35h14.29v32.65h-14.29v-32.65Z"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </footer>
