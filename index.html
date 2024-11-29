@@ -153,6 +153,94 @@
           bottom: 4rem;
         }
       }
+      .team-member {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%; /* Ensure consistent height */
+      }
+
+      .team-member-front {
+        position: relative;
+        z-index: 2; /* Lower z-index */
+        background-color: theme("colors.brand-dark");
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+      }
+
+      .team-member-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        z-index: 3; /* Higher z-index than front */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.5rem;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none; /* Allow clicks to pass through when hidden */
+      }
+
+      .team-member-info {
+        background: linear-gradient(
+          to top,
+          rgba(29, 32, 31, 0.95) 70%,
+          rgba(29, 32, 31, 0.8)
+        );
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Front content transitions */
+      .team-member-front-content {
+        transition: opacity 0.4s ease;
+      }
+
+      .team-member.expanded .team-member-front-content {
+        opacity: 0; /* Hide front content when expanded */
+      }
+
+      .team-member.expanded .team-member-back {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto; /* Re-enable clicks when visible */
+      }
+
+      .team-member.expanded .team-member-info {
+        transform: translateY(0);
+      }
+
+      /* Responsive hover/tap states */
+      @media (min-width: 1024px) {
+        .team-member:hover .team-member-front-content {
+          opacity: 0;
+        }
+
+        .team-member:hover .team-member-back {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+
+        .team-member:hover .team-member-info {
+          transform: translateY(0);
+        }
+      }
+
+      /* Additional modern touches */
+      .team-member-back p {
+        max-width: 100%;
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -337,103 +425,209 @@
           Meet The Team.
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
-            <div class="team-image-container rounded-lg mb-4">
-              <img
-                src="assets\meet+the+team\team+photos-01.png"
-                alt="Team Leader"
-                class="team-image rounded-lg"
-              />
+          <div
+            class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
+            onclick="toggleTeamMember(this)"
+          >
+            <div class="team-member-front">
+              <div class="team-image-container rounded-lg mb-4">
+                <img
+                  src="assets\meet+the+team\team+photos-01.png"
+                  alt="Team Leader"
+                  class="team-image rounded-lg"
+                />
+              </div>
+              <div class="team-member-front-content text-left pl-2">
+                <h3 class="text-2xl font-bold mb-1 not-italic">Fiona</h3>
+                <p class="text-xl text-brand-red mb-2 not-italic">
+                  Team Leader
+                </p>
+                <p class="text-gray-300">Leading our team towards success.</p>
+              </div>
             </div>
-            <div class="text-left pl-2">
-              <h3 class="text-2xl font-bold mb-1 not-italic">Fiona</h3>
-              <p class="text-xl text-brand-red mb-2 not-italic">Team Leader</p>
-              <p class="text-gray-300">Leading our team towards success.</p>
-            </div>
-          </div>
-
-          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
-            <div class="team-image-container rounded-lg mb-4">
-              <img
-                src="assets\meet+the+team\team+photos-02.png"
-                alt="Design Engineer"
-                class="team-image rounded-lg"
-              />
-            </div>
-            <div class="text-left pl-2">
-              <h3 class="text-2xl font-bold mb-1 not-italic">Harry</h3>
-              <p class="text-xl text-brand-red mb-2 not-italic">
-                Design Engineer
-              </p>
-              <p class="text-gray-300">Designing our car.</p>
-            </div>
-          </div>
-
-          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
-            <div class="team-image-container rounded-lg mb-4">
-              <img
-                src="assets\meet+the+team\team+photos-05.png"
-                alt="Manufacturing Engineer"
-                class="team-image rounded-lg"
-              />
-            </div>
-            <div class="text-left pl-2">
-              <h3 class="text-2xl font-bold mb-1 not-italic">Savannah</h3>
-              <p class="text-xl text-brand-red mb-2 not-italic">
-                Manufacturing Engineer
-              </p>
-              <p class="text-gray-300">Bringing our car to life.</p>
+            <div class="team-member-back">
+              <div class="team-member-info">
+                <h3 class="text-2xl font-bold mb-2 not-italic">Fiona</h3>
+                <p class="text-brand-red text-xl mb-4 not-italic">
+                  Team Leader
+                </p>
+                <p class="text-gray-200 text-m not-italic">
+                  Fiona is the driving force behind Revolution Racing. She
+                  ensures everyone works together to achieve excellence in every
+                  aspect.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
-            <div class="team-image-container rounded-lg mb-4">
-              <img
-                src="assets\meet+the+team\team+photos-03.png"
-                alt="Social Media & Marketing"
-                class="team-image rounded-lg"
-              />
+          <div
+            class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
+            onclick="toggleTeamMember(this)"
+          >
+            <div class="team-member-front">
+              <div class="team-image-container rounded-lg mb-4">
+                <img
+                  src="assets\meet+the+team\team+photos-02.png"
+                  alt="Design Engineer"
+                  class="team-image rounded-lg"
+                />
+              </div>
+              <div class="team-member-front-content text-left pl-2">
+                <h3 class="text-2xl font-bold mb-1 not-italic">Harry</h3>
+                <p class="text-xl text-brand-red mb-2 not-italic">
+                  Design Engineer
+                </p>
+                <p class="text-gray-300">Designing our car.</p>
+              </div>
             </div>
-            <div class="text-left pl-2">
-              <h3 class="text-2xl font-bold mb-1 not-italic">Amy</h3>
-              <p class="text-xl text-brand-red mb-2 not-italic">
-                Social Media & Marketing
-              </p>
-              <p class="text-gray-300">Building our brand presence.</p>
+            <div class="team-member-back">
+              <div class="team-member-info">
+                <h3 class="text-2xl font-bold mb-2 not-italic">Harry</h3>
+                <p class="text-brand-red text-xl mb-4 not-italic">
+                  Design Engineer
+                </p>
+                <p class="text-gray-200 text-m not-italic">
+                  Harry focuses on creating innovative designs that combine
+                  speed and efficiency, ensuring our car stands out in every
+                  race.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
-            <div class="team-image-container rounded-lg mb-4">
-              <img
-                src="assets\meet+the+team\team+photos-04.png"
-                alt="Graphic Designer"
-                class="team-image rounded-lg"
-              />
+          <div
+            class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
+            onclick="toggleTeamMember(this)"
+          >
+            <div class="team-member-front">
+              <div class="team-image-container rounded-lg mb-4">
+                <img
+                  src="assets\meet+the+team\team+photos-05.png"
+                  alt="Manufacturing Engineer"
+                  class="team-image rounded-lg"
+                />
+              </div>
+              <div class="team-member-front-content text-left pl-2">
+                <h3 class="text-2xl font-bold mb-1 not-italic">Savannah</h3>
+                <p class="text-xl text-brand-red mb-2 not-italic">
+                  Manufacturing Engineer
+                </p>
+                <p class="text-gray-300">Bringing our car to life.</p>
+              </div>
             </div>
-            <div class="text-left pl-2">
-              <h3 class="text-2xl font-bold mb-1 not-italic">Tom</h3>
-              <p class="text-xl text-brand-red mb-2 not-italic">
-                Graphic Designer
-              </p>
-              <p class="text-gray-300">Creating our visual identity.</p>
+            <div class="team-member-back">
+              <div class="team-member-info">
+                <h3 class="text-2xl font-bold mb-2 not-italic">Savannah</h3>
+                <p class="text-brand-red text-xl mb-4 not-italic">
+                  Manufacturing Engineer
+                </p>
+                <p class="text-gray-200 text-m not-italic">
+                  Savannah transforms designs into reality with precision and
+                  dedication, ensuring every component meets our high standards.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="team-member bg-brand-dark text-white p-6 rounded-lg">
-            <div class="team-image-container rounded-lg mb-4">
-              <img
-                src="assets\meet+the+team\team+photos-06.png"
-                alt="Finance Manager"
-                class="team-image rounded-lg"
-              />
+          <div
+            class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
+            onclick="toggleTeamMember(this)"
+          >
+            <div class="team-member-front">
+              <div class="team-image-container rounded-lg mb-4">
+                <img
+                  src="assets\meet+the+team\team+photos-03.png"
+                  alt="Social Media & Marketing"
+                  class="team-image rounded-lg"
+                />
+              </div>
+              <div class="team-member-front-content text-left pl-2">
+                <h3 class="text-2xl font-bold mb-1 not-italic">Amy</h3>
+                <p class="text-xl text-brand-red mb-2 not-italic">
+                  Social Media & Marketing
+                </p>
+                <p class="text-gray-300">Building our brand presence.</p>
+              </div>
             </div>
-            <div class="text-left pl-2">
-              <h3 class="text-2xl font-bold mb-1 not-italic">Adam</h3>
-              <p class="text-xl text-brand-red mb-2 not-italic">
-                Finance Manager
-              </p>
-              <p class="text-gray-300">Managing our resources.</p>
+            <div class="team-member-back">
+              <div class="team-member-info">
+                <h3 class="text-2xl font-bold mb-2 not-italic">Amy</h3>
+                <p class="text-brand-red text-xl mb-4 not-italic">
+                  Social Media & Marketing
+                </p>
+                <p class="text-gray-200 text-m not-italic">
+                  Amy crafts engaging content and manages our online presence to
+                  keep fans and sponsors informed and excited about our journey.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
+            onclick="toggleTeamMember(this)"
+          >
+            <div class="team-member-front">
+              <div class="team-image-container rounded-lg mb-4">
+                <img
+                  src="assets\meet+the+team\team+photos-04.png"
+                  alt="Graphic Designer"
+                  class="team-image rounded-lg"
+                />
+              </div>
+              <div class="team-member-front-content text-left pl-2">
+                <h3 class="text-2xl font-bold mb-1 not-italic">Tom</h3>
+                <p class="text-xl text-brand-red mb-2 not-italic">
+                  Graphic Designer
+                </p>
+                <p class="text-gray-300">Creating our visual identity.</p>
+              </div>
+            </div>
+            <div class="team-member-back">
+              <div class="team-member-info">
+                <h3 class="text-2xl font-bold mb-2 not-italic">Tom</h3>
+                <p class="text-brand-red text-xl mb-4 not-italic">
+                  Graphic Designer
+                </p>
+                <p class="text-gray-200 text-m not-italic">
+                  Tom's creative designs bring our team's vision to life,
+                  showcasing our brand with striking visuals and unique styles.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
+            onclick="toggleTeamMember(this)"
+          >
+            <div class="team-member-front">
+              <div class="team-image-container rounded-lg mb-4">
+                <img
+                  src="assets\meet+the+team\team+photos-06.png"
+                  alt="Finance Manager"
+                  class="team-image rounded-lg"
+                />
+              </div>
+              <div class="team-member-front-content text-left pl-2">
+                <h3 class="text-2xl font-bold mb-1 not-italic">Adam</h3>
+                <p class="text-xl text-brand-red mb-2 not-italic">
+                  Finance Manager
+                </p>
+                <p class="text-gray-300">Managing our resources.</p>
+              </div>
+            </div>
+            <div class="team-member-back">
+              <div class="team-member-info">
+                <h3 class="text-2xl font-bold mb-2 not-italic">Adam</h3>
+                <p class="text-brand-red text-xl mb-4 not-italic">
+                  Finance Manager
+                </p>
+                <p class="text-gray-200 text-m not-italic">
+                  Adam ensures the team's financial health, making strategic
+                  decisions to maximize our resources for success.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -652,6 +846,29 @@
         scrollIndicator.style.display = "flex";
         scrollIndicator.style.opacity = "1";
         isVisible = true;
+      }
+    });
+
+    function toggleTeamMember(element) {
+      // Check if we're on a touch device or small screen
+      if (window.innerWidth < 1024) {
+        // Toggle expanded class
+        element.classList.toggle("expanded");
+      }
+    }
+
+    // Close expanded cards when clicking outside on mobile
+    document.addEventListener("click", function (event) {
+      if (window.innerWidth < 1024) {
+        const teamMembers = document.querySelectorAll(".team-member");
+        teamMembers.forEach((member) => {
+          if (
+            member.classList.contains("expanded") &&
+            !member.contains(event.target)
+          ) {
+            member.classList.remove("expanded");
+          }
+        });
       }
     });
   </script>
