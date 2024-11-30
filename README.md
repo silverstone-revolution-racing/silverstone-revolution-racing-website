@@ -16,5 +16,4 @@
 * type for about us
 * change avea
 * open in app, then new tab
-* Tap to learn more for profile cards - typing animation when pressed
-* Hover animation should blur out persona and appear above, tap in mobile, hover on desktop
+* thank sponsors - huge thanks

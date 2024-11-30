@@ -143,16 +143,11 @@
 
       /* Scroll indicator styling and animation */
       .scroll-indicator {
-        bottom: 2rem;
+        bottom: 4rem;
         transition: opacity 0.3s ease-out;
         animation: bounce 2s infinite;
       }
 
-      @media (max-width: 768px) {
-        .scroll-indicator {
-          bottom: 4rem;
-        }
-      }
       .team-member {
         position: relative;
         overflow: hidden;
@@ -635,14 +630,14 @@
     </section>
 
     <!-- Sponsors Section -->
-    <section id="sponsors" class="py-20 bg-brand-dark">
+    <section id="sponsors" class="pt-24 bg-brand-dark">
       <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-12 text-white">
+        <h2 class="text-4xl font-bold text-center mb-16 text-white">
           Our Sponsors.
         </h2>
 
         <div
-          class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto"
+          class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto"
         >
           <!-- Main Sponsor -->
           <div class="col-span-1 sm:col-span-3">
@@ -677,7 +672,7 @@
             </div>
           </div>
 
-          <!-- Secondary Sponsor 1 (hidden on mobile, shown on larger screens) -->
+          <!-- Secondary Sponsors (hidden on mobile, shown on larger screens) -->
           <div
             class="hidden sm:block bg-white rounded-lg shadow-lg overflow-hidden"
           >
@@ -694,7 +689,6 @@
             </div>
           </div>
 
-          <!-- Secondary Sponsor 2 (hidden on mobile, shown on larger screens) -->
           <div
             class="hidden sm:block bg-white rounded-lg shadow-lg overflow-hidden"
           >
@@ -711,7 +705,6 @@
             </div>
           </div>
 
-          <!-- Secondary Sponsor 3 (hidden on mobile, shown on larger screens) -->
           <div
             class="hidden sm:block bg-white rounded-lg shadow-lg overflow-hidden"
           >
@@ -728,14 +721,47 @@
             </div>
           </div>
         </div>
+
+        <!-- Thank You Message -->
+        <div class="text-center mt-16 mb-16">
+          <p class="text-white not-italic">
+            Thank you to our sponsors for making this journey possible. We truly
+            appreciate your support!
+          </p>
+        </div>
+
+        <!-- Sponsor Us Section -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto"
+        >
+          <div class="col-span-1 sm:col-span-3">
+            <div class="bg-white rounded-lg p-8 text-center">
+              <h3 class="text-3xl font-bold text-brand-dark mb-4">
+                Become a Sponsor.
+              </h3>
+              <p class="text-gray-700 mb-6 not-italic">
+                Looking for sponsors! Join us in our F1 in Schools journey. Get
+                in touch to discover our sponsorship tiers. Sponsorship
+                opportunities closing January 1st, 2025.
+              </p>
+              <a
+                href="mailto:ad.okapa@utc-silverstone.co.uk"
+                class="inline-block bg-brand-red text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all transform hover:-translate-y-1 shadow-lg"
+              >
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-white py-8">
+    <footer class="bg-brand-dark text-white pt-16 pb-8">
       <div class="container mx-auto px-6 text-center">
         <p>© 2024 Revolution Racing. All rights reserved.</p>
-        <div class="mt-4 flex justify-center space-x-4">
+        <div class="mt-6 mb-4 flex justify-center space-x-4">
+          <!-- Social media icons remain the same -->
           <!-- Instagram Icon -->
           <a
             href="https://www.instagram.com/silverstonerevolutionracing/"
@@ -789,7 +815,6 @@
           </a>
 
           <!-- LinkTree Icon -->
-
           <a
             href="https://linktr.ee/silverstonerevolutionracing"
             class="text-brand-red hover:text-white transition-colors"
