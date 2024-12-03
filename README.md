@@ -3,9 +3,6 @@
 
 ### Todo:
 
-* navbar go to left and right
 * hosting with Netlify
 * custom domain
 * favicon
-* type for about us
-* type for team members
