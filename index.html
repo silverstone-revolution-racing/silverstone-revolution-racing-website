@@ -9,10 +9,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
     />
     <style>
-      /* Import Poppins font from Google Fonts - regular, semibold, and bold weights */
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-      /* Define global CSS variables for consistent color usage throughout the site */
       :root {
         --blue: #80a1c1;
         --dark: #1d201f;
@@ -21,14 +19,13 @@
         --white: #ffffff;
       }
 
-      /* Base styles for the entire site */
       body {
         font-family: "Poppins", sans-serif;
         background-color: var(--offwhite);
         font-style: italic;
       }
 
-      /* Utility classes for brand colors - backgrounds */
+      /* Background color utility classes */
       .bg-brand-blue {
         background-color: var(--blue);
       }
@@ -39,7 +36,7 @@
         background-color: var(--red);
       }
 
-      /* Utility classes for brand colors - text */
+      /* Text color utility classes */
       .text-brand-blue {
         color: var(--blue);
       }
@@ -50,32 +47,30 @@
         color: var(--red);
       }
 
-      /* Hero section with full viewport height and background image */
+      /* Hero section styling */
       .hero-section {
-        background-color: var(--white); /* Fallback color */
+        background-color: var(--white);
         background-image: url("./assets/hero.png");
         background-position: center;
         background-size: cover;
         height: 100vh;
       }
 
-      /* Card hover animations */
+      /* Value card hover effect */
       .value-card {
         transition: transform 0.3s ease;
       }
-
       .value-card:hover {
         transform: translateY(-5px);
       }
 
-      /* Team member hover animations */
+      /* Team member styling and hover effect */
       .team-image-container {
         position: relative;
         width: 100%;
         padding-top: 100%;
         overflow: hidden;
       }
-
       .team-image {
         position: absolute;
         top: 0;
@@ -84,21 +79,17 @@
         height: 100%;
         object-fit: cover;
       }
-
       .team-member {
         transition: transform 0.3s ease;
       }
-
       .team-member:hover {
         transform: translateY(-5px);
       }
 
-      /* Navigation link hover effects */
+      /* Navigation link hover effect */
       .nav-link {
         position: relative;
       }
-
-      /* Animated underline effect for navigation links */
       .nav-link::after {
         content: "";
         position: absolute;
@@ -109,12 +100,11 @@
         background-color: var(--red);
         transition: width 0.3s ease;
       }
-
       .nav-link:hover::after {
         width: 100%;
       }
 
-      /* Bounce animation keyframes for scroll indicator */
+      /* Bounce animation for scroll indicator */
       @keyframes bounce {
         0%,
         20%,
@@ -131,12 +121,11 @@
         }
       }
 
-      /* Hide scrollbar for scroll prompt - Firefox */
+      /* Scroll prompt scrollbar styling for Firefox */
       .scroll-prompt {
         scrollbar-width: none;
       }
-
-      /* Hide scrollbar for scroll prompt - Webkit browsers */
+      /* Scroll prompt scrollbar styling for Webkit browsers */
       .scroll-prompt::-webkit-scrollbar {
         display: none;
       }
@@ -148,22 +137,21 @@
         animation: bounce 2s infinite;
       }
 
+      /* Team member card animations */
       .team-member {
         position: relative;
         overflow: hidden;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        height: 100%; /* Ensure consistent height */
+        height: 100%;
       }
-
       .team-member-front {
         position: relative;
-        z-index: 2; /* Lower z-index */
+        z-index: 2;
         background-color: theme("colors.brand-dark");
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         height: 100%;
       }
-
       .team-member-back {
         position: absolute;
         top: 0;
@@ -171,7 +159,7 @@
         width: 100%;
         height: 100%;
         background-color: var(--dark);
-        z-index: 3; /* Higher z-index than front */
+        z-index: 3;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -179,9 +167,8 @@
         opacity: 0;
         transform: translateY(100%);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none; /* Allow clicks to pass through when hidden */
+        pointer-events: none;
       }
-
       .team-member-info {
         background: linear-gradient(
           to top,
@@ -194,50 +181,43 @@
         transform: translateY(100%);
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
-
-      /* Front content transitions */
       .team-member-front-content {
         transition: opacity 0.4s ease;
       }
-
       .team-member.expanded .team-member-front-content {
-        opacity: 0; /* Hide front content when expanded */
+        opacity: 0;
       }
-
       .team-member.expanded .team-member-back {
         opacity: 1;
         transform: translateY(0);
-        pointer-events: auto; /* Re-enable clicks when visible */
+        pointer-events: auto;
       }
-
       .team-member.expanded .team-member-info {
         transform: translateY(0);
       }
 
-      /* Responsive hover/tap states */
+      /* Hover/tap states for larger screens */
       @media (min-width: 1024px) {
         .team-member:hover .team-member-front-content {
           opacity: 0;
         }
-
         .team-member:hover .team-member-back {
           opacity: 1;
           transform: translateY(0);
           pointer-events: auto;
         }
-
         .team-member:hover .team-member-info {
           transform: translateY(0);
         }
       }
 
-      /* Additional modern touches */
+      /* Modern touch for text formatting */
       .team-member-back p {
         max-width: 100%;
         line-height: 1.6;
       }
 
-      /* Indicator Styling */
+      /* Interactive indicator styling */
       .interactive-indicator {
         position: absolute;
         bottom: 24px;
@@ -248,12 +228,10 @@
         z-index: 10;
         pointer-events: none;
       }
-
       .card-animation {
         animation: cardBounce 2s infinite ease-in-out;
       }
-
-      /* Pulse animation */
+      /* Pulse animation for indicators */
       @keyframes pulse {
         0% {
           opacity: 0.6;
@@ -268,7 +246,6 @@
           transform: scale(1);
         }
       }
-
       /* Card bounce animation */
       @keyframes cardBounce {
         0% {
@@ -282,6 +259,7 @@
         }
       }
 
+      /* Adjustments for medium screens */
       @media (min-width: 768px) {
         .interactive-indicator {
           display: none;
@@ -425,11 +403,12 @@
         </h2>
         <div class="max-w-3xl mx-auto text-lg text-gray-700">
           <p class="not-italic">
-            Revolution Racing is proud to represent Silverstone UTC in the F1 in
-            Schools regional competition. We are a team of six ambitious
-            16-year-olds, united by a passion for innovation and engineering.
-            With diverse skills and a shared drive for excellence, we aim to
-            push boundaries and leave our mark on the competition.
+            We are Revolution Racing, an F1 in Schools team representing
+            Silverstone UTC in the Development Division 2025. We are a team of
+            students united by a passion for motorsport and driven by
+            innovation. With diverse skills and a shared drive to push
+            boundaries, we aim to exhibit our range of talent from engineering
+            to marketing and leave our mark on the competition.
           </p>
         </div>
       </div>
