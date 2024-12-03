@@ -982,12 +982,6 @@
 
         // Remove on card click
         card.addEventListener("click", removeIndicator);
-
-        // Remove after 5 seconds if not interacted with
-        const timeoutId = setTimeout(removeIndicator, 5000);
-
-        // Clear timeout if card is interacted with before 5 seconds
-        card.addEventListener("mouseenter", () => clearTimeout(timeoutId));
       });
     });
   </script>
