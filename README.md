@@ -3,5 +3,4 @@
 
 ### Todo:
 
-* custom domain
 * links to sponsors section
