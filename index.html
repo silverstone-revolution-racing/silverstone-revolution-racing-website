@@ -3,7 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revolution Racing - F1 in Schools</title>
+    <title>Revolution Racing | F1 in Schools Team - Silverstone UTC</title>
+
+    <!-- Primary Meta Tags -->
+    <meta
+      name="title"
+      content="Revolution Racing | F1 in Schools Team - Silverstone UTC"
+    />
+    <meta
+      name="description"
+      content="Revolution Racing is an F1 in Schools team from Silverstone UTC competing in the Development Division 2025. Driven by innovation and passion for motorsport."
+    />
+    <meta
+      name="keywords"
+      content="Revolution Racing, F1 in Schools, Silverstone UTC, motorsport, engineering, student racing, Development Division 2025"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://silverstonerevolutionracing.com/"
+    />
+    <meta
+      property="og:title"
+      content="Revolution Racing | F1 in Schools Team"
+    />
+    <meta
+      property="og:description"
+      content="A student racing team from Silverstone UTC competing in F1 in Schools Development Division 2025. Join us on our journey of innovation and excellence in motorsport."
+    />
+    <meta
+      property="og:image"
+      content="assets/logos/revolution+racing/logo.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://silverstonerevolutionracing.com/"
+    />
+    <meta
+      property="twitter:title"
+      content="Revolution Racing | F1 in Schools Team"
+    />
+    <meta
+      property="twitter:description"
+      content="A student racing team from Silverstone UTC competing in F1 in Schools Development Division 2025. Join us on our journey of innovation and excellence in motorsport."
+    />
+    <meta
+      property="twitter:image"
+      content="assets/logos/revolution+racing/logo.png"
+    />
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="Revolution Racing" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
@@ -27,16 +86,19 @@
     />
     <link rel="manifest" href="./favicon/site.webmanifest" />
     <style>
+      /* Import Poppins font */
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+      /* Define root variables */
       :root {
-        --blue: #80a1c1;
-        --dark: #1d201f;
-        --red: #ff4242;
-        --offwhite: #f9f9f9;
-        --white: #ffffff;
+        --blue: #80a1c1; /* Primary blue color */
+        --dark: #1d201f; /* Dark gray color */
+        --red: #ff4242; /* Bright red color */
+        --offwhite: #f9f9f9; /* Off-white color */
+        --white: #ffffff; /* White color */
       }
 
+      /* Set default font and background color */
       body {
         font-family: "Poppins", sans-serif;
         background-color: var(--offwhite);
@@ -290,6 +352,7 @@
   </head>
   <body>
     <!-- Navigation -->
+    <!-- Fixed navigation bar with logo, mobile menu button, and desktop menu -->
     <nav class="fixed w-full bg-brand-dark bg-opacity-90 text-white z-50">
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
@@ -297,6 +360,7 @@
           <a href="#" class="text-xl font-bold">Revolution Racing.</a>
 
           <!-- Mobile menu button -->
+          <!-- Toggles mobile menu on click -->
           <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
             <svg
               class="w-6 h-6"
@@ -314,6 +378,7 @@
           </button>
 
           <!-- Desktop menu -->
+          <!-- Hidden on mobile, shown on larger screens -->
           <div class="hidden md:flex space-x-8">
             <a href="#about" class="nav-link">About</a>
             <a href="#values" class="nav-link">Values</a>
@@ -323,6 +388,7 @@
         </div>
 
         <!-- Mobile menu -->
+        <!-- Hidden on larger screens, shown on mobile -->
         <div id="mobile-menu" class="hidden md:hidden mt-4">
           <div class="flex flex-col space-y-4">
             <a href="#about" class="nav-link block" onclick="closeMenu()"
@@ -346,7 +412,9 @@
     <section
       class="hero-section flex items-center justify-center text-center text-white relative"
     >
+      <!-- Container for hero content -->
       <div class="container mx-auto px-6">
+        <!-- Logo display -->
         <div class="flex justify-center mb-12">
           <img
             src="assets\logos\revolution+racing\logo.png"
@@ -354,9 +422,11 @@
             class="h-36"
           />
         </div>
+        <!-- Main headline -->
         <h1
           class="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 text-brand-dark"
         >
+          <!-- Slogan -->
           Revolution Racing.
         </h1>
         <p
@@ -367,11 +437,13 @@
       </div>
 
       <!-- Scroll Indicator -->
+      <!-- This section is used to create a scroll indicator for the user, which lets them know that there is more content to explore below the fold. The indicator is only visible on the hero section and is hidden on other sections of the website. The indicator is also responsive, with a different design for desktop and mobile devices. -->
       <div
         id="scroll-indicator"
         class="scroll-indicator absolute flex flex-col items-center opacity-100"
       >
         <!-- Desktop version -->
+        <!-- This is the desktop version of the scroll indicator. It uses a simple arrow icon to point down to the content below the fold. -->
         <div class="hidden md:flex flex-col items-center">
           <p class="text-brand-dark mb-2 font-semibold">Scroll for more</p>
           <svg
@@ -390,6 +462,7 @@
         </div>
 
         <!-- Mobile version -->
+        <!-- This is the mobile version of the scroll indicator. It uses a more prominent design, with a rounded background and a swipe up instruction. -->
         <div class="md:hidden flex flex-col items-center">
           <div
             class="bg-brand-dark text-white px-4 py-2 rounded-full shadow-lg mb-4"
@@ -414,11 +487,13 @@
     </section>
 
     <!-- About Section -->
+    <!-- Introduce the team and explain the purpose of the website -->
     <section id="about" class="py-20 bg-white">
       <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-12 text-brand-dark">
           About Us.
         </h2>
+        <!-- Briefly introduce the team -->
         <div class="max-w-3xl mx-auto text-lg text-gray-700">
           <p class="not-italic">
             We are Revolution Racing, an F1 in Schools team representing
@@ -438,7 +513,9 @@
         <h2 class="text-4xl font-bold text-center mb-12 text-white">
           Our Values.
         </h2>
+        <!-- Values Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Innovation Card -->
           <div class="value-card bg-white p-8 rounded-lg shadow-lg">
             <h3 class="text-2xl font-bold mb-4 text-brand-blue">Innovation.</h3>
             <p class="not-italic">
@@ -446,6 +523,7 @@
               ideas.
             </p>
           </div>
+          <!-- Ambition Card -->
           <div class="value-card bg-white p-8 rounded-lg shadow-lg">
             <h3 class="text-2xl font-bold mb-4 text-brand-blue">Ambition.</h3>
             <p class="not-italic">
@@ -453,6 +531,7 @@
               top.
             </p>
           </div>
+          <!-- Integrity Card -->
           <div class="value-card bg-white p-8 rounded-lg shadow-lg">
             <h3 class="text-2xl font-bold mb-4 text-brand-blue">Integrity.</h3>
             <p class="not-italic">
@@ -471,6 +550,7 @@
           Meet The Team.
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Fiona - Team Leader -->
           <div
             class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
             onclick="toggleTeamMember(this)"
@@ -506,6 +586,7 @@
             </div>
           </div>
 
+          <!-- Harry - Design Engineer -->
           <div
             class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
             onclick="toggleTeamMember(this)"
@@ -541,6 +622,7 @@
             </div>
           </div>
 
+          <!-- Savannah - Manufacturing Engineer -->
           <div
             class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
             onclick="toggleTeamMember(this)"
@@ -576,6 +658,7 @@
             </div>
           </div>
 
+          <!-- Amy - Social Media & Marketing -->
           <div
             class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
             onclick="toggleTeamMember(this)"
@@ -611,6 +694,7 @@
             </div>
           </div>
 
+          <!-- Tom - Graphic Designer -->
           <div
             class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
             onclick="toggleTeamMember(this)"
@@ -647,6 +731,7 @@
             </div>
           </div>
 
+          <!-- Adam - Finance Manager -->
           <div
             class="team-member bg-brand-dark text-white p-6 rounded-lg relative"
             onclick="toggleTeamMember(this)"
@@ -674,7 +759,7 @@
                   Finance Manager
                 </p>
                 <p class="text-gray-200 text-m not-italic">
-                  Adam manages the team’s budget and secures sponsorships. His
+                  Adam manages the team's budget and secures sponsorships. His
                   role is key to keeping the team financially prepared and
                   supported.
                 </p>
@@ -698,7 +783,7 @@
           <!-- Main Sponsor -->
           <div class="col-span-1 sm:col-span-3">
             <div class="bg-white rounded-lg shadow-lg overflow-hidden mx-auto">
-              <!-- Mobile square container -->
+              <!-- Mobile square for all sponsors -->
               <div class="relative w-full sm:hidden" style="padding-top: 100%">
                 <div
                   class="absolute inset-0 p-4 flex items-center justify-center"
@@ -817,7 +902,6 @@
       <div class="container mx-auto px-6 text-center">
         <p>© 2024 Revolution Racing. All rights reserved.</p>
         <div class="mt-6 mb-4 flex justify-center space-x-4">
-          <!-- Social media icons remain the same -->
           <!-- Instagram Icon -->
           <a
             href="https://www.instagram.com/silverstonerevolutionracing/"
@@ -938,10 +1022,9 @@
       }
     });
 
+    // Toggle expanded class on smaller screens
     function toggleTeamMember(element) {
-      // Check if we're on a touch device or small screen
       if (window.innerWidth < 1024) {
-        // Toggle expanded class
         element.classList.toggle("expanded");
       }
     }

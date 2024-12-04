@@ -3,6 +3,5 @@
 
 ### Todo:
 
-* hosting with Netlify
 * custom domain
-* favicon
+* links to sponsors section
